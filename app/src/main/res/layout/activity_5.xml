@@ -5,6 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity5">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="QR"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="190dp"
@@ -67,8 +81,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.311" />
-
+        app:layout_constraintVertical_bias="0.269" />
 
     <ScrollView
         android:layout_width="313dp"
@@ -77,7 +90,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.622"
+        app:layout_constraintVertical_bias="0.542"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -90,5 +103,29 @@
             tools:layout_editor_absoluteX="140dp"
             tools:layout_editor_absoluteY="593dp" />
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/cardManejo"
+        android:layout_width="331dp"
+        android:layout_height="83dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827">
+
+        <TextView
+            android:id="@+id/textManejo"
+            android:layout_width="321dp"
+            android:layout_height="wrap_content"
+            android:text="Orientación de Comunicación y Manejo"
+            android:textAlignment="center"
+            android:textSize="26sp"
+            tools:layout_editor_absoluteX="140dp"
+            tools:layout_editor_absoluteY="593dp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
