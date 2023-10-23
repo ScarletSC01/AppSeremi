@@ -28,6 +28,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -75,8 +76,10 @@
         android:ems="10"
         android:inputType="text"
         android:text="XX.XXX.XXX-X"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="343dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtNTea"
@@ -84,8 +87,12 @@
         android:layout_height="wrap_content"
         android:text="PERSONA TEA:"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="102dp"
-        tools:layout_editor_absoluteY="311dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.452" />
 
     <TextView
         android:id="@+id/txtNTutor"
@@ -93,8 +100,12 @@
         android:layout_height="wrap_content"
         android:text="TUTOR:"
         android:textSize="16sp"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="425dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.599" />
 
     <EditText
         android:id="@+id/txtRutTutorIn"
@@ -103,8 +114,12 @@
         android:ems="10"
         android:inputType="text"
         android:text="XX.XXX.XXX-X"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="442dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.651" />
 
     <Button
         android:id="@+id/button"

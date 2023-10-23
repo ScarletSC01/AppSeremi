@@ -27,6 +27,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -72,15 +73,18 @@
     <ScrollView
         android:layout_width="313dp"
         android:layout_height="268dp"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="267dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.622"
         tools:ignore="MissingConstraints">
 
         <TextView
             android:id="@+id/txtGradoD"
             android:layout_width="243dp"
             android:layout_height="wrap_content"
-            android:text="Detalle Grado de TEA"
+            android:text="Detalle Grado de TEA - Detalle"
             android:textAlignment="center"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="140dp"
