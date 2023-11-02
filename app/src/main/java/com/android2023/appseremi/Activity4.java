@@ -26,9 +26,10 @@ public class Activity4 extends AppCompatActivity {
 
         // Recibir los rut desde la activity n°2.
         String RutPaciente = getIntent().getStringExtra("RutPaciente");
-
+        // Asignar el rut al campo de texto.
         txtRutTeaOut.setText(RutPaciente);
 
+        // Metodo para consultar el nombre y grado de TEA
         ConsultarNombreyGradoTEA();
     }
 

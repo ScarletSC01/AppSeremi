@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity {
     EditText rutTeaIn, rutTutorIn;
@@ -28,11 +29,16 @@ public class Activity2 extends AppCompatActivity {
                 // Covertir a String.
                 String RutPaciente = rutTeaIn.getText().toString();
                 String RutTutor = rutTutorIn.getText().toString();
+                // Validar si los campos de texto estan vacios.
+                if(RutPaciente.isEmpty() || RutTutor.isEmpty()){
+                    Toast.makeText(Activity2.this, "Complete los campos", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent intent = new Intent(getApplicationContext(), Activity3.class);
+                    intent.putExtra("RutPaciente", RutPaciente);
+                    intent.putExtra("RutTutor", RutTutor);
+                    startActivity(intent);
+                }
 
-                Intent intent = new Intent(getApplicationContext(), Activity3.class);
-                intent.putExtra("RutPaciente", RutPaciente);
-                intent.putExtra("RutTutor", RutTutor);
-                startActivity(intent);
             }
         });
 

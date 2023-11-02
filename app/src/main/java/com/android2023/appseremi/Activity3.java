@@ -49,7 +49,7 @@ public class Activity3 extends AppCompatActivity {
 
     public void ConsultarCesfam() {
         try {
-            // Rut a String
+            // Conversion Rut a String
             String rutPersona = txtRutTea.getText().toString();
             String rutTutor = txtRutTutor.getText().toString();
             // Instancia de la conexion
