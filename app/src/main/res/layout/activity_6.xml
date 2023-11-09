@@ -18,7 +18,7 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/txtCrisis"
+            android:id="@+id/txtOFamiliar"
             android:layout_width="243dp"
             android:layout_height="wrap_content"
             android:text="Detalle Orientación Familiar"
@@ -129,7 +129,7 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/txtCrisis"
+            android:id="@+id/txtOClinica"
             android:layout_width="243dp"
             android:layout_height="wrap_content"
             android:text="Detalle Orientación Clínica"
