@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.584" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtinicio"
         android:layout_width="190dp"
         android:layout_height="53dp"
         android:text="INFORMACIÓN INTEGRAL TEA/CEA"
