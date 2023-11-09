@@ -2,20 +2,13 @@ package com.android2023.appseremi;
 
 import static androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.biometric.BiometricPrompt;
-import androidx.core.content.ContextCompat;
 
-import android.app.KeyguardManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import java.util.concurrent.Executor;
 
 public class MainActivity extends AppCompatActivity {
     Button btnEduc;
@@ -26,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Boton Educacion.
-        btnEduc = findViewById(R.id.btnEduca);
+        btnEduc = findViewById(R.id.btnCrisis);
         btnEduc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
