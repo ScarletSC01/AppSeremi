@@ -13,11 +13,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
     Button btnEduc;
-    ImageView incrementa;
+    ImageView incrementa, lectura;
     TextView txtinicio;
     int Contador = 0;
+    private TextToSpeech tts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtinicio  = findViewById(R.id.txtinicio);
-        // IMW Tamaño letra.
+        // IMW Boton Tamaño letra.
         incrementa = findViewById(R.id.incrementa);
         incrementa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +43,29 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // Configuracion del altavoz.
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    Locale locSpanish = new Locale("spa", "ESP");
+                    tts.setLanguage(locSpanish);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Falló la inicialización", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // IMW Boton Lectura.
+        lectura = findViewById(R.id.lectura);
+        lectura.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tts.speak("Informacion Integral TEA/CEA. Seleccione En Educacion", TextToSpeech.QUEUE_FLUSH,null);
+            }
+        });
+
         // Boton Educacion.
         btnEduc = findViewById(R.id.btnCrisis);
         btnEduc.setOnClickListener(new View.OnClickListener() {

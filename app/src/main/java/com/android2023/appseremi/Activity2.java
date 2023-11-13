@@ -1,9 +1,12 @@
 package com.android2023.appseremi;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +14,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.Locale;
+
 public class Activity2 extends AppCompatActivity {
+    private TextToSpeech tts;
     EditText rutTeaIn, rutTutorIn;
     Button buscar;
     TextView txtinicio, txtNtea, txtNtutor;
-    ImageView incrementa;
+    ImageView incrementa, lectura;
     int Contador = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,7 @@ public class Activity2 extends AppCompatActivity {
         rutTeaIn   = findViewById(R.id.txtRutTeaIn);
         rutTutorIn = findViewById(R.id.txtRutTutorIn);
 
+
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +77,29 @@ public class Activity2 extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+            }
+        });
+
+        // Configuracion del altavoz.
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    Locale locSpanish = new Locale("spa", "ESP");
+                    tts.setLanguage(locSpanish);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Falló la inicialización", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // IMW Boton Lectura.
+        lectura = findViewById(R.id.lectura);
+        lectura.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                tts.speak("Ingrese el RUT De La Persona TEA. " +
+                        "Luego El RUT Del Tutor. Como Ultimo Paso En Buscar", TextToSpeech.QUEUE_FLUSH,null);
             }
         });
     }

@@ -8,16 +8,16 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="88dp"
+        android:layout_height="29dp"
         android:text="RUT Tutor:"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.249"
+        app:layout_constraintHorizontal_bias="0.262"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.587" />
 
     <TextView
         android:id="@+id/txtinicio"
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre Centro de Atencion"
             android:textAlignment="center"
-            android:textSize="28sp" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <TextView
@@ -110,7 +110,7 @@
         android:layout_width="234dp"
         android:layout_height="70dp"
         android:text="RUT Persona TEA"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
@@ -123,7 +123,7 @@
         android:layout_width="238dp"
         android:layout_height="72dp"
         android:text="RUT Tutor"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -132,17 +132,17 @@
         app:layout_constraintVertical_bias="0.672" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="123dp"
-        android:layout_height="24dp"
+        android:id="@+id/txtRutT"
+        android:layout_width="144dp"
+        android:layout_height="39dp"
         android:text="RUT Persona TEA:"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.318"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.422" />
+        app:layout_constraintVertical_bias="0.42" />
 
     <ImageView
         android:id="@+id/incrementa"

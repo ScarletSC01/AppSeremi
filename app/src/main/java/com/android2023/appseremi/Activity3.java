@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,8 +15,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Activity3 extends AppCompatActivity {
-    EditText rutTeaOut, rutTutorOut;
     TextView txtRutTea, txtRutTutor, txtNombreCen;
+    ImageView incrementa, lectura;
+    int Contador = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,25 @@ public class Activity3 extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), Activity4.class);
                 intent.putExtra("RutPaciente", RutPaciente);
                 startActivity(intent);
+            }
+        });
+
+        // Incrementar el tamaño de la letra
+        incrementa = findViewById(R.id.incrementa);
+        incrementa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Contador++;
+                txtRutTea.setTextSize(36);
+                txtRutTutor.setTextSize(36);
+                txtNombreCen.setTextSize(32);
+
+                if(Contador == 2){
+                    txtRutTea.setTextSize(24);
+                    txtRutTutor.setTextSize(24);
+                    txtNombreCen.setTextSize(24);
+                    Contador = 0;
+                }
             }
         });
 
