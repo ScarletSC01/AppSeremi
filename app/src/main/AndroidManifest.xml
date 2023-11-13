@@ -15,6 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppSeremi"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCSIb2GrhX8IQnWOIKJ_0q5mrnfLa_-Uls" />
+        <activity
+            android:name=".Activity3Map"
+            android:exported="false" />
         <activity
             android:name=".Activity8"
             android:exported="false" />

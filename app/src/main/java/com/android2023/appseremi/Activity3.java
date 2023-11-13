@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,8 @@ import java.sql.Statement;
 public class Activity3 extends AppCompatActivity {
     EditText rutTeaOut, rutTutorOut;
     TextView txtRutTea, txtRutTutor, txtNombreCen;
+
+    ImageView ubicacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,14 @@ public class Activity3 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ubicacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Activity3.this,Activity3Map.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
