@@ -15,8 +15,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Activity3 extends AppCompatActivity {
-    EditText rutTeaOut, rutTutorOut;
     TextView txtRutTea, txtRutTutor, txtNombreCen;
+    ImageView incrementa, lectura;
+    int Contador = 0;
 
     ImageView ubicacion;
 
@@ -55,6 +56,25 @@ public class Activity3 extends AppCompatActivity {
             }
         });
 
+
+        // Incrementar el tamaño de la letra
+        incrementa = findViewById(R.id.incrementa);
+        incrementa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Contador++;
+                txtRutTea.setTextSize(36);
+                txtRutTutor.setTextSize(36);
+                txtNombreCen.setTextSize(32);
+
+                if(Contador == 2){
+                    txtRutTea.setTextSize(24);
+                    txtRutTutor.setTextSize(24);
+                    txtNombreCen.setTextSize(24);
+                    Contador = 0;
+                }
+            }
+        });
 
     }
 
