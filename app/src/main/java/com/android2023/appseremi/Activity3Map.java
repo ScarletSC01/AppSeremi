@@ -9,9 +9,12 @@ import android.view.View;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Activity3Map extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -36,7 +39,11 @@ public class Activity3Map extends AppCompatActivity implements OnMapReadyCallbac
     }
 
     @Override
-    public void onMapReady(@NonNull GoogleMap googleMap) {
+    public void onMapReady(@NonNull GoogleMap map) {
+        googleMaps = map;
 
+        LatLng centroAtencion = new LatLng(lat,lng);
+        map.addMarker(new MarkerOptions().position(centroAtencion).title("Nombre centro de atención"));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(centroAtencion,12));
     }
 }
