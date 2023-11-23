@@ -54,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txttitulo"
         android:layout_width="190dp"
         android:layout_height="53dp"
         android:text="INFORMACIÓN INTEGRAL TEA/CEA"

@@ -17,8 +17,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Activity3Map extends AppCompatActivity implements OnMapReadyCallback {
-
-    double lat, lng;
     private GoogleMap googleMaps;
     private FusedLocationProviderClient fusedLocationClient;
     @SuppressLint("MissingInflatedId")
@@ -29,21 +27,20 @@ public class Activity3Map extends AppCompatActivity implements OnMapReadyCallbac
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        //Obtener desde BD
-        //lat = ;
-        //lng = ;
-
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
     }
 
     @Override
     public void onMapReady(@NonNull GoogleMap map) {
+        // Obtener datos de la activity anterior
+        String nombreCesfam = getIntent().getStringExtra("Nombrecesfam");
+        double lat2 = getIntent().getDoubleExtra("Latitud", 0.0);
+        double long2 = getIntent().getDoubleExtra("Longitud", 0.0);
+        // Agregar el nuevo marcador
         googleMaps = map;
-
-        LatLng centroAtencion = new LatLng(lat,lng);
-        map.addMarker(new MarkerOptions().position(centroAtencion).title("Nombre centro de atención"));
+        LatLng centroAtencion = new LatLng(lat2,long2);
+        map.addMarker(new MarkerOptions().position(centroAtencion).title(nombreCesfam));
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(centroAtencion,12));
     }
 }

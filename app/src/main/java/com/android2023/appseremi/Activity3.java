@@ -1,26 +1,29 @@
 package com.android2023.appseremi;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Activity3 extends AppCompatActivity {
-    TextView txtRutTea, txtRutTutor, txtNombreCen;
-    ImageView incrementa, lectura;
+    TextView txtRutTea, txtRutTutor, txtNombreCen, txtLatitud, txtLongitud;
+    ImageView incrementa;
     int Contador = 0;
+    DatabaseReference databaseReference;
 
     ImageView ubicacion;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +32,10 @@ public class Activity3 extends AppCompatActivity {
         txtRutTea   = findViewById(R.id.txtRutTeaOut);
         txtRutTutor = findViewById(R.id.txtNombreOut);
         txtNombreCen = findViewById(R.id.txtNomCentro);
+        txtLatitud = findViewById(R.id.txtLatitud);
+        txtLongitud = findViewById(R.id.txtLongitud);
+        ubicacion = findViewById(R.id.imgMap);
+
 
         // Recibir los rut desde la activity n°2.
         String RutPaciente = getIntent().getStringExtra("RutPaciente");
@@ -36,9 +43,6 @@ public class Activity3 extends AppCompatActivity {
 
         txtRutTea.setText(RutPaciente);
         txtRutTutor.setText(RutTutor);
-
-        // Metodo Consultar Cesfam por rut
-        ConsultarCesfam();
 
         txtRutTea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,14 +52,6 @@ public class Activity3 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ubicacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Activity3.this,Activity3Map.class);
-                startActivity(intent);
-            }
-        });
-
 
         // Incrementar el tamaño de la letra
         incrementa = findViewById(R.id.incrementa);
@@ -76,30 +72,53 @@ public class Activity3 extends AppCompatActivity {
             }
         });
 
+        // Metodo
+        CesfamPorRut();
     }
 
-    public void ConsultarCesfam() {
-        try {
-            // Conversion Rut a String
-            String rutPersona = txtRutTea.getText().toString();
-            String rutTutor = txtRutTutor.getText().toString();
-            // Instancia de la conexion
-            DataBaseTEA dataBaseTEA = new DataBaseTEA();
-            // Crear la conexion
-            Statement stm = dataBaseTEA.conexionSQL().createStatement();
-            // preparar sentencia SQL
-            ResultSet rs = stm.executeQuery("SELECT CEFAM.Nombre_del_CEFAM " +
-                    "FROM Personas " +
-                    "INNER JOIN CEFAM ON Personas.CEFAM_ID = CEFAM.ID " +
-                    "WHERE Personas.Rut = '" + rutPersona + "' " +
-                    "AND Personas.Tutor_Rut = '" + rutTutor + "'");
-            if (rs.next()) {
-                // Mostrar Resultado en pantalla
-                txtNombreCen.setText("Ficha Clinica " + rs.getString(1));
+    public void CesfamPorRut(){
+        String rutBuscado = txtRutTea.getText().toString();
+        databaseReference = FirebaseDatabase.getInstance().getReference("PersonaTEA");
+        // Obtener el nombre del cesfam
+        databaseReference.child(rutBuscado).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        // Obtener el nombre identificador, en este caso el cesfam
+                        String cesfamKey = childSnapshot.getKey();
+                        txtNombreCen.setText(cesfamKey);
+                        // Ubicacion de acuerdo al Cesfam
+                        ubicacion.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                // Acceder a la latitud y longitud desde la BD
+                                Double latitudCesfam = childSnapshot.child("Latitud").getValue(Double.class);
+                                Double longitudCesfam = childSnapshot.child("Longitud").getValue(Double.class);
+
+                                // Pasar Los datos a la siguiente actividad
+                                Intent intent = new Intent(Activity3.this,Activity3Map.class);
+                                intent.putExtra("Nombrecesfam",cesfamKey);
+                                intent.putExtra("Latitud", latitudCesfam);
+                                intent.putExtra("Longitud",longitudCesfam);
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                    }
+                } else {
+                    Toast.makeText(Activity3.this, "Rut Incorrecto", Toast.LENGTH_SHORT).show();
+                }
             }
-        } catch (SQLException e) {
-            Toast.makeText(this, "Fallo", Toast.LENGTH_SHORT).show();
-        }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(Activity3.this, "ERROR", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
+
 
 }
