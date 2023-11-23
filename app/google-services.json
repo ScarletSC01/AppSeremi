@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "708242838035",
-    "project_id": "appserem",
-    "storage_bucket": "appserem.appspot.com"
+    "project_number": "980575417275",
+    "project_id": "appseremibd",
+    "storage_bucket": "appseremibd.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:708242838035:android:ce80a5434c0b754cf3a5e6",
+        "mobilesdk_app_id": "1:980575417275:android:804da89b2a947439c58a9e",
         "android_client_info": {
           "package_name": "com.android2023.appseremi"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyATgGESEwpPWsWwVq4c9j5idaBfE4Q2zSY"
+          "current_key": "AIzaSyA03m-Xd3xlRpe8gr0_xbDvIdbtEP6e0f0"
         }
       ],
       "services": {
