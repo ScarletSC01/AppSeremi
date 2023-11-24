@@ -18,7 +18,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCSIb2GrhX8IQnWOIKJ_0q5mrnfLa_-Uls" />
+            android:value="AIzaSyCSIb2GrhX8IQnWOIKJ_0q5mrnfLa_-Uls"/>
         <activity
             android:name=".Activity3Map"
             android:exported="false" />
@@ -48,7 +48,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

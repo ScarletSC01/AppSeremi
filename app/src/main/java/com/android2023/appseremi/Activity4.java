@@ -34,25 +34,6 @@ public class Activity4 extends AppCompatActivity {
     }
 
     public void ConsultarNombreyGradoTEA() {
-        try {
-            // Rut a String
-            String rutBuscado = txtRutTeaOut.getText().toString();
-            // Instancia de la conexion
-            DataBaseTEA dataBaseTEA = new DataBaseTEA();
-            // Crear la conexion
-            Statement stm = dataBaseTEA.conexionSQL().createStatement();
-            // preparar sentencia SQL
-            ResultSet rs = stm.executeQuery("Select p.Nombre, p.Grado_de_TEA " +
-                    "from Personas as p " +
-                    "where p.Rut = '" + rutBuscado + "'");
-            if (rs.next()) {
-                // Mostrar Resultado en pantalla
-                txtNombreOut.setText(rs.getString(1));
-                txtGrado.setText(rs.getString( 2));
 
-            }
-        } catch (SQLException e) {
-            Toast.makeText(this, "Fallo", Toast.LENGTH_SHORT).show();
-        }
     }
 }
