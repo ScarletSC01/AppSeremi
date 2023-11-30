@@ -54,20 +54,24 @@ public class Activity2 extends AppCompatActivity {
         // Capturar los rut.
         rutTeaIn   = findViewById(R.id.txtRutTeaIn);
         rutTutorIn = findViewById(R.id.txtRutTutorIn);
+        // Formato rut chileno
+        rutTeaIn.addTextChangedListener(new RutTextWatcher(rutTeaIn));
+        rutTutorIn.addTextChangedListener(new RutTextWatcher(rutTutorIn));
 
 
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Covertir a String.
-                String RutPaciente = rutTeaIn.getText().toString();
+                String RutTea = rutTeaIn.getText().toString();
                 String RutTutor = rutTutorIn.getText().toString();
+
                 // Validar si los campos de texto estan vacios.
-                if(RutPaciente.isEmpty() || RutTutor.isEmpty()){
+                if(RutTea.isEmpty() || RutTutor.isEmpty()){
                     Toast.makeText(Activity2.this, "Complete los campos", Toast.LENGTH_SHORT).show();
                 }else{
                     Intent intent = new Intent(getApplicationContext(), Activity3.class);
-                    intent.putExtra("RutPaciente", RutPaciente);
+                    intent.putExtra("RutPaciente", RutTea);
                     intent.putExtra("RutTutor", RutTutor);
                     startActivity(intent);
                 }
@@ -98,5 +102,4 @@ public class Activity2 extends AppCompatActivity {
             }
         });
     }
-
 }

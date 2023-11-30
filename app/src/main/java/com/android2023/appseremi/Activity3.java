@@ -18,7 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Activity3 extends AppCompatActivity {
-    TextView txtRutTea, txtRutTutor, txtNombreCen, txtLatitud, txtLongitud;
+    TextView txtRutTea, txtRutTutor, txtNombreCen;
     ImageView incrementa;
     int Contador = 0;
     DatabaseReference databaseReference;
@@ -29,12 +29,10 @@ public class Activity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        txtRutTea   = findViewById(R.id.txtRutTeaOut);
-        txtRutTutor = findViewById(R.id.txtNombreOut);
+        txtRutTea    = findViewById(R.id.txtRutTeaOut);
+        txtRutTutor  = findViewById(R.id.txtNombreOut);
         txtNombreCen = findViewById(R.id.txtNomCentro);
-        txtLatitud = findViewById(R.id.txtLatitud);
-        txtLongitud = findViewById(R.id.txtLongitud);
-        ubicacion = findViewById(R.id.imgMap);
+        ubicacion    = findViewById(R.id.imgMap);
 
 
         // Recibir los rut desde la activity n°2.
@@ -43,6 +41,7 @@ public class Activity3 extends AppCompatActivity {
 
         txtRutTea.setText(RutPaciente);
         txtRutTutor.setText(RutTutor);
+
 
         txtRutTea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +76,12 @@ public class Activity3 extends AppCompatActivity {
     }
 
     public void CesfamPorRut(){
-        String rutBuscado = txtRutTea.getText().toString();
+        String RutPaciente = getIntent().getStringExtra("RutPaciente");
+        // Obtener solo los numeros del rut, para la consulta a la BD
+        String RutTeaN = obtenerSoloNumerosRut(RutPaciente);
         databaseReference = FirebaseDatabase.getInstance().getReference("PersonaTEA");
         // Obtener el nombre del cesfam
-        databaseReference.child(rutBuscado).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child(RutTeaN).orderByKey().addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -118,7 +119,9 @@ public class Activity3 extends AppCompatActivity {
         });
 
     }
-
-
+    public String obtenerSoloNumerosRut(String rutConFormato) {
+        // Elimina caracteres no numéricos
+        return rutConFormato.replaceAll("[^0-9]", "");
+    }
 
 }
