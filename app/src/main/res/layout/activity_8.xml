@@ -117,7 +117,7 @@
         app:srcCompat="@drawable/voice" />
 
     <Button
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnActividad"
         android:layout_width="143dp"
         android:layout_height="58dp"
         android:backgroundTint="#3C71FB"

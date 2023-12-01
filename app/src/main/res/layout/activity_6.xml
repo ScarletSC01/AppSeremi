@@ -125,7 +125,7 @@
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396"
+        app:layout_constraintVertical_bias="0.401"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -164,7 +164,7 @@
         app:srcCompat="@drawable/voice" />
 
     <Button
-        android:id="@+id/btnVolver"
+        android:id="@+id/btnActividad"
         android:layout_width="143dp"
         android:layout_height="58dp"
         android:backgroundTint="#3C71FB"

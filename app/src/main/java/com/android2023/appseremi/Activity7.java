@@ -15,7 +15,7 @@ public class Activity7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_7);
 
-        volver = findViewById(R.id.btnVolver);
+        volver = findViewById(R.id.btnActividad);
 
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
