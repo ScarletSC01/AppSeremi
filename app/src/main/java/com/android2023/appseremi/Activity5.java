@@ -16,6 +16,7 @@ public class Activity5 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_5);
 
+        //Programacion de txtManejo
         textManejo = findViewById(R.id.textManejo);
 
         textManejo.setOnClickListener(new View.OnClickListener() {
