@@ -71,6 +71,8 @@ public class Activity2 extends AppCompatActivity {
                     Toast.makeText(Activity2.this, "Complete los campos", Toast.LENGTH_SHORT).show();
                 }else{
                     Intent intent = new Intent(getApplicationContext(), Activity3.class);
+                    /*Intent intent1 = new Intent(getApplicationContext(), Activity5.class);
+                    intent1.putExtra("RutPaciente", RutTea);*/
                     intent.putExtra("RutPaciente", RutTea);
                     intent.putExtra("RutTutor", RutTutor);
                     startActivity(intent);
