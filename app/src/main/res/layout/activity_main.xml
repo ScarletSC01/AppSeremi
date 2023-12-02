@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <Button
-        android:id="@+id/btnActividad"
+        android:id="@+id/btnSalud"
         android:layout_width="125dp"
         android:layout_height="48dp"
         android:backgroundTint="#3C71FB"
@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.675" />
 
     <Button
-        android:id="@+id/btnCrisis"
+        android:id="@+id/btnEduc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#3C71FB"
@@ -44,7 +44,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
+        app:layout_constraintVertical_bias="0.793" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

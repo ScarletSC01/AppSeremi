@@ -42,16 +42,19 @@ public class Activity6 extends AppCompatActivity {
                 intent.putExtra("RutPaciente", RutPaciente);
                 startActivity(intent);
 
-           btnCrisis.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
-                   Intent intent = new Intent(
-                           getApplicationContext(),
-                           Activity8.class);
-                   intent.putExtra("RutPaciente", RutPaciente);
-                   startActivity(intent);
-               }
-           });
+
+            }
+        });
+
+        btnCrisis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(
+                        getApplicationContext(),
+                        Activity7.class);
+                intent.putExtra("RutPaciente" ,RutPaciente);
+                startActivity(intent);
+
             }
         });
 

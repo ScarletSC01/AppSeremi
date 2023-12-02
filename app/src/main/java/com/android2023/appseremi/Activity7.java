@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Activity7 extends AppCompatActivity {
 
-    Button volver;
+    Button volverActividades;
     TextView txtActividades, txtRutTeaOut;
     DatabaseReference databaseReference;
     @Override
@@ -25,16 +25,17 @@ public class Activity7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_7);
 
-        volver = findViewById(R.id.btnActividad);
+        volverActividades = findViewById(R.id.btnVolverActividad);
         txtActividades = findViewById(R.id.txtActividades);
         txtRutTeaOut = findViewById(R.id.txtRutTeaOut);
         // Recibir los rut desde la activity n°2.
         String RutPaciente = getIntent().getStringExtra("RutPaciente");
 
-        volver.setOnClickListener(new View.OnClickListener() {
+        volverActividades.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Activity7.this,Activity6.class);
+                intent.putExtra("RutPaciente", RutPaciente);
                 startActivity(intent);
             }
         });
